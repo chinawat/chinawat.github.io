@@ -1,0 +1,5 @@
+*.bak
+/.project
+/rss.php
+/\[Originals\]
+/papers/archive

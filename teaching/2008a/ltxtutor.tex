@@ -1,0 +1,129 @@
+%CIS260 Spring 2008
+%LaTeX Tutorial Session Sample File
+%Author: Chinawat Isradisaikul
+%Thursday, February 21, 2008
+\documentclass[12pt]{article} %specifies the type of the document.  The default font size is 10.  [12pt] is an optional argument to use font size 12 as default.
+\usepackage{fullpage} %readjusts the margins
+\usepackage{amssymb} %for special math symbols
+\usepackage{mathtime} %Use Times font.  Comment this line if you run into problems; for example, if math symbols become weird.
+
+%define new commands
+%\newcommand{\command_name}[# of args]{definition} %Refer to argument i by #i.
+\newcommand{\set}[1]{\ensuremath\{#1\}}
+\newcommand{\R}[2]{\ensuremath #1\ R\ #2}
+
+\begin{document}
+Today is Thursday.  Tomorrow is Friday.  Yesterday was Wednesday.  There was total lunar eclipse last night, and I was out there taking pictures.  I took about 50 photos and I had a midterm today.  I didn't study for it, but I survived.  Yay!!!\\
+Yahoo!!!\\ %\\ starts a new line without beginning a new paragraph
+\LaTeX %This produces beautiful LaTeX symbol.
+\today %prints today's date; changes when document rebuilt
+
+Tomorrow we will have a quiz in recitation.
+
+%The special characters in LaTeX are # $ % _ { } ^ \ ~.  To produce any of the first seven symbols, precede it by a backslash (\).
+We know 100\% of \LaTeX\ today!!! %\ followed by a space produces a space in the document; otherwise we would have something like LaTeXtoday!!!  (See one with \today.)
+
+``function'' %double quotation begins with `` and ends with ''
+
+%center environment
+\begin{center}
+Combinatorial Proof
+\end{center}
+
+%math mode starts with $ and ends with $.  Expression goes between $'s.
+%displaymath environment puts math expression at center to make it a little more attractive.  Its shorthand starts with \[ and end with \].
+Let $x$ be a natural number.  Then $2x+1$ is odd.  \[1+2+3+4+5+6=21\]  $n \choose 2$
+\[k {n\choose 2}=m {n+k\choose k}\] %things in {xxx} goes together.  Think about it as one large character.
+
+$2\cdot 2=4$
+
+\[\frac{13!}{5!8!}\]
+
+%superscript ^; subscript _
+$x^2-2x+1=0$ $2008^{260}$ $2^{2^2}$ $2^{2^{2^{2^2}}}$ $a_1$ $a_{12}$ $a_{1_2}$  Let $x_1$ and $x_2$ be the roots of this polynomial.
+
+%ellipses are created by \dots, \cdots, \vdots, or \ddots
+$1+2+3+\cdots+n=\frac{n(n+1)}{2}$ $a\mid b$
+
+%tabular environment produces a table.  Need to specify the alignment of each column.  | puts a vertical line between corresponding columns.
+%& splits text between columns.  A cell can be empty, i.e., && is allowed.
+\begin{tabular}{lc|r} %align left, center, and right, respectively
+First & Last & Points\\
+\hline
+Ant & Bat & 10\\
+May & June & 7
+\end{tabular}
+
+%eqnarray environment enters math mode automatically.  There are three columns in this environment; the usage is similar to tabular.
+\begin{eqnarray}
+\frac{n(n+1)}{2}+(n+1)&=&\frac{n(n+1)+2(n+1)}{2}\\
+&=&\frac{(n+1)[n+2]}{2}\\
+\sum_{i=1}^{n+1}{i}&=&\frac{(n+1)(n+2)}{2}.
+\end{eqnarray}
+
+%eqnarray* environment suppresses equation numbers.
+\begin{eqnarray*}
+\frac{n(n+1)}{2}+(n+1)&=&\frac{n(n+1)+2(n+1)}{2}\\
+&=&\frac{(n+1)[n+2]}{2}\\
+\sum_{i=1}^{n+1}{i}&=&\frac{(n+1)(n+2)}{2}.
+\end{eqnarray*}
+
+%print the current page's number
+This is page \thepage.
+
+%enumerate environment creates an ordered list; can be nested up to four layers.  (Try 5 layers and see what happens.)
+\begin{enumerate}
+\item Determine whether the following relations...
+\begin{enumerate}
+\item $\neq$ on $\mathbb Z$.
+\item $\subseteq$ on $2^A$, where $A$ is any nonempty set.
+\item A relation $R$ on $\mathbb R$; $x R y$ iff $xy\leq 0$.
+\end{enumerate}
+
+\item
+\item
+\item
+\end{enumerate}
+
+%itemize environment creates an unordered list; same usage as enumerate
+\begin{itemize}
+\item Determine whether the following relations...
+\begin{itemize}
+\item $\neq$ on $\mathbb Z$.
+\item $\subseteq$ on $2^A$, where $A$ is any nonempty set.
+\item A relation $R$ on $\mathbb R$; $x R y$ iff $xy\leq 0$.
+\end{itemize}
+
+\item
+\item
+\item
+\end{itemize}
+
+This is page \thepage.
+
+%\left and \right put a symbol tall enough to cover the inside expression
+\[
+\left(\frac{(n+1)}{2}\right]^3
+\]
+
+%example of half open interval
+$[0,\infty)$
+
+%array environment is similar to tabular, but used in math mode
+\[
+f(x)=\left\{
+\begin{array}{ll}
+\frac{x}{2} & \mbox{if $x$ is even}\\
+3x+1 & \mbox{if $x$ is odd}.
+\end{array}
+\right. %\left must end with \right; \right. produces nothing
+\]
+
+%\noindent does not indent the new paragraph; \fbox produces a frame box.
+\noindent\fbox{\bf CIS260--Spring 2008}\\
+\textbf{CIS260--Spring 2008}
+
+%usage of user-defined commands
+$\set{x:x\in\mathbb Z}$ $\R{x}{y}$
+
+\end{document}

@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>CIS121 Fall 2007 - Chin Isradisaikul</title>
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+</head>
+<body>
+<h3>
+CIS121-204 Fall 2007<br>
+Recitations: Tuesdays, 3-4PM, Moore 100A
+</h3>
+
+<h4>Staff Information</h4>
+Recitation Leader: Chinawat Isradisaikul (Chin)<br>
+E-mail: chinawat&#64;seas&#46;upenn&#46;edu<br>
+
+<h4>Announcements</h4>
+<ul>
+<li>12/04/2007 - Mobile Office Hours: Saturday 12/08-Wednesday 12/12, 10AM-10PM.  Just send me an e-mail where to meet.
+<li>11/28/2007
+	<ul>
+	<li>No office hours on Sunday 12/02
+	<li>Office hours on Wednesday 12/05 7-9PM, Moore 100A
+	</ul>
+</ul>
+
+<h4>Office Hours</h4>
+- Sundays 7-9PM, Moore 100A<br>
+- By appointment
+
+<h4>Schedule/What We Have Done</h4>
+<table cellspacing=0 border=1>
+<tr>
+	<th>Date</th>
+	<th>What's Up?</th>
+</tr>
+<tr>
+	<td>12/04/2007</td>
+	<td>
+Last Meeting<br>
+- Course Evaluation<br>
+- Quick review of graph terminology<br>
+- Finding single-source shortest path on an unweighted directed graph [<a href="http://www.seas.upenn.edu/~cis121/labs/lab12/lab12.pdf" target=_blank>Lab 12</a>]<br>
+- <a href="2007c/lab12.ppt" target=_blank>Lab 12 PowerPoint</a><br>
+- Thanks for the good time we had this semester. :)
+	</td>
+</tr>
+<tr>
+	<td>11/27/2007</td>
+	<td>
+Java Dictionary ADT Interfaces: <code>Map</code>, <code>SortedMap</code>, <code>Set</code>, <code>SortedSet</code>
+[<a href="http://www.seas.upenn.edu/~cis121/labs/lab11/lab11.html" target=_blank>Lab 11</a>]<br>
+<ul>
+<li><code>HashMap</code> implements <code>Map</code>.  It uses a hash table with separate chaining to handle collisions.
+<li><code>TreeMap</code> implements <code>SortedMap</code>.  It uses a Red-Black tree, which is a balanced binary search tree.
+</ul>
+<code>Set</code> is a special case of <code>Map</code> where keys are identical to values.<br>
+<code>SortedSet</code> is a special case of <code>SortedMap</code> where keys are identical to values.<br>
+<ul>
+<li><code>HashSet</code> implements <code>Set</code>.
+<li><code>TreeSet</code> implements <code>SortedSet</code>.
+</ul>
+Use <code>Map</code> (<code>Set</code>) when you want a fast access.  Use <code>SortedMap</code> (<code>SortedSet</code>) if the ordering of the keys is crucial.  For example, use a <code>TreeSet</code> to store grades when you want to list the grades in order from highest to lowest; use a <code>HashSet</code> when you just want to look up whether a grade exists in the collection.
+	</td>
+</tr>
+<tr>
+	<td>11/20/2007</td>
+	<td>Project Discussion</td>
+</tr>
+<tr>
+	<td>11/13/2007</td>
+	<td>Review for Midterm 2</td>
+</tr>
+<tr>
+	<td>11/06/2007</td>
+	<td>
+Quick Review of Tree Traversals: Preorder, Postorder, Breadth-first, Inorder (for binary trees)<br>
+Binary Heap [<a href="http://www.seas.upenn.edu/~cis121/labs/lab8/lab8.html" target=_blank>Lab 8</a>]<br>
+- Heap operations: <code>add</code>, <code>removeRoot</code><br>
+- <code>add</code>
+<ul>
+<li>Add the new node as the last node in the heap (so the tree remains complete, but it might not be a heap anymore).
+<li>Bubble the new element <b>up</b> until the tree is a heap, i.e., the heap-order property is satisfied.
+</ul>
+- <code>removeRoot</code>
+<ul>
+<li>Instead of physically remove the root, we replace the value of the root by the value of the last node.
+<li>Delete the last node.
+<li>Bubble the value at the root <b>down</b>  until the tree is a heap.
+</ul>
+Lab 8 Implementation<br>
+- Use this declaration for BinaryMinHeap: <code>public class BinaryMinHeap&lt;E extends Comparable&lt;? super E&gt;&gt; implements BinaryMinHeapI&lt;E&gt;</code><br>
+- How to keep track of the last node?<br>
+<ul>
+<li>In case of <code>add</code>,
+<ul>
+<li>If lastNode is the left child of its parent, then lastNode's parent is the parent of new lastNode, and new lastNode is the right child of its parent.
+<li>If lastNode is the right child of its parent, then
+<ul>
+<li>Go up the tree until we find the node at which we branch left.
+<li>Go to the right child of this node.
+<li>The leftmost node of this subtree is the parent of new lastNode, and new lastNode is the left child of its parent
+<li>If we cannot find the node at which we branch left, then the leftmost node of the tree is the parent of new lastNode, and new lastNode is the left child of its parent
+</ul>
+</ul>
+<li>In case of <code>removeRoot</code>, the algorithm is the reflection of one for <code>add</code>:
+<ul>
+<li>If lastNode is the right child of its parent, then new lastNode is the left child of lastNode's parent.
+<li>If lastNode is the left child of its parent, then
+<ul>
+<li>Go up the tree until we find the node at which we branch right.
+<li>Go to the left child of this node.
+<li>New lastNode is the rightmost node of this subtree.
+<li>If we cannot find the node at which we branch right, then new lastNode is the rightmost node of the tree.
+</ul>
+</ul>
+</ul>
+- Use this JUnit test file to preliminarily test your heap: <a href="2007c/TestHeap.java" target=_blank>TestHeap.java</a><br>
+- Use this Symbol class to avoid warnings (in case you want to implement Huffman encoding): <a href="2007c/Symbol.java" target=_blank>Symbol.java</a>
+	</td>
+</tr>
+<tr>
+	<td>10/30/2007</td>
+	<td>
+Linked Structures [<a href="http://www.seas.upenn.edu/~cis121/labs/lab7/lab7.html" target=_blank>Lab 7</a>]<br>
+- Time complexity of each list operation<br>
+- Stack and Queue: Time complexity of each operation<br>
+- Appending two lists: analyzing running time<br>
+- <a href="2007c/lab07soln.pdf" target=_blank>Solution to Lab 7</a>
+	</td>
+</tr>
+<tr>
+	<td>10/23/2007</td>
+	<td>
+Getting to know Eclipse: a powerful Java IDE [<a href="http://www.seas.upenn.edu/~cis121/labs/lab6/lab6.shtml" target=_blank>Lab 6</a>]<br>
+<ul>
+	<li>Some definitions:
+	<ul>
+		<li><b>Workspace</b>: folder for the projects to be saved; can switch workspace in the File menu.
+		<li><b>Project</b>: collection of files related to each other somehow--simple sense of the word
+		<li><b>Perspective</b>: look and feel (and of course functionality): Java for implementation, Debug for debugging (for sure)
+	</ul>
+	<li>Easy tasks:
+	<ul>
+		<li>Create a new project/class/interface/etc.
+		<li>Import existing classes.
+	</ul>
+	<li>Moderate tasks:
+	<ul>
+		<li>Run a class with a main method
+		<li>Debugging: breakpoints, conditional breakpoints, stepping, variable watches
+	</ul>
+	<li>Incredible tasks: refactoring
+	<ul>
+		<li>Change variable names without pressing Ctrl+H or call Replace.
+		<li>Change method signatures such that you don't need to do it for every invocation of that method.
+	</ul>
+	<li>Features: autocomplete, autocompile, autoformat, autoindent, autodebug (last one just kidding)
+</ul>
+Good for a big project, such as our upcoming project. :)
+	</td>
+</tr>
+<tr>
+	<td>10/16/2007</td>
+	<td><i>No Meeting: Fall Break</i></td>
+</tr>
+<tr>
+	<td>10/09/2007</td>
+	<td>Review for Midterm 1</td>
+</tr>
+<tr>
+	<td>10/02/2007</td>
+	<td>
+Mathematical Induction and Big-O Notation (continued)<br>
+- Proving equalities is usually easier than proving inequalities.<br>
+How to determine Big-O in a given algorithm?<br>
+- Take the advantage of Big-O: insignificant terms don't matter; constants don't matter.<br>
+- Use summation to calculate the running time of the loop.<br>
+- <a href="2007c/lab03sup.pdf" target=_blank>Supplementary Document</a>
+	</td>
+</tr>
+<tr>
+	<td>09/25/2007</td>
+	<td>
+Mathematical Induction and Big-O Notation<br>
+- Induction is quite similar to trying to fall a sequence of dominos.<br>
+- Big-O is mostly used in analyzing complexity of algorithms.<br>
+- To prove that <i>f(n)</i> is <i>O(g(n))</i>, we just need to find a constant <i>c</i> and a natural number <i>N</i>
+such that the condition in the definition holds, whether they be an explicit number or in terms of some other variables.<br>
+- To prove that <i>f(n)</i> is not <i>O(g(n))</i>, we usually prove by contradiction.<br>
+- <a href="2007c/lab03soln.pdf" target=_blank>Solution to Lab 3</a>
+	</td>
+</tr>
+<tr>
+	<td>09/18/2007</td>
+	<td>
+Counting exact number of steps in code snippets.<br>
+- Need to count primitive operations right:
+<ul>
+	<li>assignment
+	<li>arithmetic operation
+	<li>comparison
+	<li>array indexing
+	<li>method invocation
+	<li>return from procedure
+	<li>object referencing
+</ul>
+- Need to count the number of iterations in each loop right.<br>
+- Consider the worst case for <i>if</i> statements.<br>
+- Sometimes parts of the code never execute!<br>
+- <a href="2007c/lab02soln.pdf" target=_blank>Solution to Lab 2</a>
+	</td>
+</tr>
+<tr>
+	<td>09/11/2007</td>
+	<td>
+First Meeting<br>
+- Icebreaker and Introductions<br>
+- <a href="http://www.seas.upenn.edu/~cis121/labs/lab1/lab-unix.html" target=_blank>Basic Unix Tutorial</a>: 
+<pre>ls, pwd, cd, mkdir, rmdir, mv, cp, rm, man, whoami, hostname, less, more</pre>
+- Java and Code Repetition [<a href="http://www.seas.upenn.edu/~cis121/labs/lab1/lab1.html" target=_blank>Lab 1</a>]
+	</td>
+</tr>
+</table>
+<p align=right>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88" border=0></a><br>
+Updated: 12/04/2007
+</p>
+</body>
+</html>
